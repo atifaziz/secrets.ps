@@ -8,26 +8,26 @@ saved to a plain text file using [Base64][base64] encoding.
 
 To save a secret to a file, use `Set-Secret.ps1` as follows:
 
-    . .\Set-Sercret -FilePath password
+    . .\Set-Secret -FilePath password
 
 The script will prompt for the secret to be saved and save it encrypted to a
 file called `password`. The encryption uses the user's key by default.
 Supplying the `-ForHost` will encrypt using the machine key:
 
-    . .\Set-Sercret.ps1 -FilePath password -ForHost
+    . .\Set-Secret.ps1 -FilePath password -ForHost
 
 To test a secret previously saved to a file, use `Test-Secret.ps1`:
 
-    . .\Test-Sercret.ps1 -FilePath password
+    . .\Test-Secret.ps1 -FilePath password
 
 The script will prompt for the secret to test then checks if it is the same
 as the secret saved in the file. It returns `True` if the match is successful
 otherwise it emits an error.
 
-`Test-Sercret.ps1` can find out if the secret was encrypted using the user's
+`Test-Secret.ps1` can find out if the secret was encrypted using the user's
 or machine's key. The information is stored in an [alternate data stream][ads]
 named `DataProtectionScope` that either contains a line reading `CurrentUser`
-or `LocalMachine`. If this is lost then `Test-Sercret.ps1` assumes
+or `LocalMachine`. If this is lost then `Test-Secret.ps1` assumes
 `CurrentUser`. To force `LocalMachine`, supply the `-ForHost` switch.
 
 
