@@ -39,7 +39,7 @@ Add-Type -AssemblyName System.Security
         % { $_.Trim() } |
         select -First 1
 
-        if (-not $scope)
+if (-not $scope)
 {
     $scope = if ($forHost) { 'LocalMachine' } else { 'CurrentUser' }
 }
