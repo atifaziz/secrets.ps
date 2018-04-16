@@ -61,7 +61,7 @@ finally
     [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
 }
 
-$ok = $testSecret -ne $secretText
+$ok = $testSecret -eq $secretText
 
 # evict secret from managed memory immediately
 
