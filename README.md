@@ -8,17 +8,17 @@ saved to a plain text file using [Base64][base64] encoding.
 
 To save a secret to a file, use `Set-Secret.ps1` as follows:
 
-    . .\Set-Secret -FilePath password
+    .\Set-Secret.ps1 -FilePath password
 
 The script will prompt for the secret to be saved and save it encrypted to a
 file called `password`. The encryption uses the user's key by default.
 Supplying the `-ForHost` will encrypt using the machine key:
 
-    . .\Set-Secret.ps1 -FilePath password -ForHost
+    .\Set-Secret.ps1 -FilePath password -ForHost
 
 To test a secret previously saved to a file, use `Test-Secret.ps1`:
 
-    . .\Test-Secret.ps1 -FilePath password
+    .\Test-Secret.ps1 -FilePath password
 
 The script will prompt for the secret to test then checks if it is the same
 as the secret saved in the file. It returns `True` if the match is successful
